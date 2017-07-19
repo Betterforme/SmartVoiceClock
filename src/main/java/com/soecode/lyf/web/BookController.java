@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.soecode.lyf.dto.AppointExecution;
 import com.soecode.lyf.dto.Result;
 import com.soecode.lyf.entity.Book;
+import com.soecode.lyf.entity.ResultBean;
 import com.soecode.lyf.enums.AppointStateEnum;
 import com.soecode.lyf.exception.NoNumberException;
 import com.soecode.lyf.exception.RepeatAppointException;
@@ -34,10 +35,21 @@ public class BookController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	private Object list(Model model) {
-		List<Book> list = bookService.getList();
-		model.addAttribute("list", list);
+		ResultBean result = new ResultBean();
+		List<Book> list;
+		try {
+			list = bookService.getList();
+			model.addAttribute("list", list);
+			result.setResultObject(list);
+			result.setResultCode("0");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result.setResultObject(null);
+			result.setResultCode("1");
+		}
 		// list.jsp + model = ModelAndView
-		return list;// WEB-INF/jsp/"list".jsp
+		return result;// WEB-INF/jsp/"list".jsp
 	}
 
 	@RequestMapping(value = "/{bookId}/detail", method = RequestMethod.GET)
