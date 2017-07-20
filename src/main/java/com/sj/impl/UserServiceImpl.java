@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 	// 注入Service依赖
 
 	@Autowired
-	private UserMapper userMapper;
+	private UserMapper userMapper; 
 	
 	@Override
 	public User getUserById(long userid) {
