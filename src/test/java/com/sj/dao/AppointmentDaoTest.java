@@ -1,11 +1,11 @@
-package com.soecode.lyf.dao;
+package com.sj.dao;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.sj.BaseTest;
 import com.sj.dao.AppointmentDao;
 import com.sj.entity.Appointment;
-import com.soecode.lyf.BaseTest;
 
 public class AppointmentDaoTest extends BaseTest {
 

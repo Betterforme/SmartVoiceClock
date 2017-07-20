@@ -17,12 +17,14 @@
   <sql id="Base_Column_List" >
     userid, username, password, city, age, sex, dob, email, user_icon, status, last_login_time
   </sql>
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from user
     where userid = #{userid,jdbcType=BIGINT}
   </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from user
     where userid = #{userid,jdbcType=BIGINT}
@@ -160,4 +162,15 @@
       last_login_time = #{lastLoginTime,jdbcType=DATE}
     where userid = #{userid,jdbcType=BIGINT}
   </update>
+  
+  <select id="queryAll" resultType="User">
+		SELECT
+			<include refid="Base_Column_List" />
+		FROM
+			user
+		ORDER BY
+			userid
+	</select>
+	
+	
 </mapper>

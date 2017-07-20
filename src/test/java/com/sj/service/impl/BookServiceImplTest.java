@@ -1,13 +1,13 @@
-package com.soecode.lyf.service.impl;
+package com.sj.service.impl;
 
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.sj.BaseTest;
 import com.sj.dto.AppointExecution;
 import com.sj.service.BookService;
-import com.soecode.lyf.BaseTest;
 
 public class BookServiceImplTest extends BaseTest {
 

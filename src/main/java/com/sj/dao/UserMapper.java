@@ -1,5 +1,9 @@
 package com.sj.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.sj.entity.User;
 
 public interface UserMapper {
@@ -14,4 +18,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    
+    List<User> queryAll();
 }

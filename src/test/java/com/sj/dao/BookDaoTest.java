@@ -1,13 +1,13 @@
-package com.soecode.lyf.dao;
+package com.sj.dao;
 
 import java.util.List;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.sj.BaseTest;
 import com.sj.dao.BookDao;
 import com.sj.entity.Book;
-import com.soecode.lyf.BaseTest;
 
 public class BookDaoTest extends BaseTest {
 
