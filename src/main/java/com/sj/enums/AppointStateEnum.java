@@ -1,4 +1,4 @@
-package com.soecode.lyf.enums;
+package com.sj.enums;
 
 /**
  * 使用枚举表述常量数据字典

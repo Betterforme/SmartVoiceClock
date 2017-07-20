@@ -1,4 +1,4 @@
-package com.soecode.lyf.service.impl;
+package com.sj.impl;
 
 import java.util.List;
 
@@ -8,16 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.soecode.lyf.dao.AppointmentDao;
-import com.soecode.lyf.dao.BookDao;
-import com.soecode.lyf.dto.AppointExecution;
-import com.soecode.lyf.entity.Appointment;
-import com.soecode.lyf.entity.Book;
-import com.soecode.lyf.enums.AppointStateEnum;
-import com.soecode.lyf.exception.AppointException;
-import com.soecode.lyf.exception.NoNumberException;
-import com.soecode.lyf.exception.RepeatAppointException;
-import com.soecode.lyf.service.BookService;
+import com.sj.dao.AppointmentDao;
+import com.sj.dao.BookDao;
+import com.sj.dto.AppointExecution;
+import com.sj.entity.Appointment;
+import com.sj.entity.Book;
+import com.sj.enums.AppointStateEnum;
+import com.sj.exception.AppointException;
+import com.sj.exception.NoNumberException;
+import com.sj.exception.RepeatAppointException;
+import com.sj.service.BookService;
 
 @Service
 public class BookServiceImpl implements BookService {

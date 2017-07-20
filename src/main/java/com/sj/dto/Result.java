@@ -1,4 +1,4 @@
-package com.soecode.lyf.dto;
+package com.sj.dto;
 
 /**
  * 封装json对象，所有返回结果都使用它

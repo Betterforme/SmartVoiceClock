@@ -1,7 +1,7 @@
-package com.soecode.lyf.dto;
+package com.sj.dto;
 
-import com.soecode.lyf.entity.Appointment;
-import com.soecode.lyf.enums.AppointStateEnum;
+import com.sj.entity.Appointment;
+import com.sj.enums.AppointStateEnum;
 
 /**
  * 封装预约执行后结果

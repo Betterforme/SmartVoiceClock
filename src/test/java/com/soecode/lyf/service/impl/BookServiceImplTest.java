@@ -5,9 +5,9 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.sj.dto.AppointExecution;
+import com.sj.service.BookService;
 import com.soecode.lyf.BaseTest;
-import com.soecode.lyf.dto.AppointExecution;
-import com.soecode.lyf.service.BookService;
 
 public class BookServiceImplTest extends BaseTest {
 

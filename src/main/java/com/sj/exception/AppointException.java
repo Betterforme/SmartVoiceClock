@@ -1,4 +1,4 @@
-package com.soecode.lyf.exception;
+package com.sj.exception;
 
 /**
  * 预约业务异常

@@ -1,10 +1,18 @@
-package com.soecode.lyf.entity;
+package com.sj.entity;
 
 public class ResultBean {
 
 	String resultCode;
 	Object resultObject;
 	String total;
+	
+	public ResultBean(){
+		this.resultCode = "";
+		this.resultObject = null;
+		this.total = "";
+
+	}
+	
 	public String getResultCode() {
 		return resultCode;
 	}

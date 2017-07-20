@@ -1,8 +1,8 @@
-package com.soecode.lyf.dao;
+package com.sj.dao;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.soecode.lyf.entity.Appointment;
+import com.sj.entity.Appointment;
 
 public interface AppointmentDao {
 

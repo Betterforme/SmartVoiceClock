@@ -1,4 +1,4 @@
-package com.soecode.lyf.web;
+package com.sj.web;
 
 import java.util.List;
 
@@ -14,28 +14,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.soecode.lyf.dto.AppointExecution;
-import com.soecode.lyf.dto.Result;
-import com.soecode.lyf.entity.Book;
-import com.soecode.lyf.entity.ResultBean;
-import com.soecode.lyf.enums.AppointStateEnum;
-import com.soecode.lyf.exception.NoNumberException;
-import com.soecode.lyf.exception.RepeatAppointException;
-import com.soecode.lyf.service.BookService;
+import com.sj.dto.AppointExecution;
+import com.sj.dto.Result;
+import com.sj.entity.Book;
+import com.sj.entity.ResultBean;
+import com.sj.enums.AppointStateEnum;
+import com.sj.exception.NoNumberException;
+import com.sj.exception.RepeatAppointException;
+import com.sj.service.BookService;
 
 @Controller
 @RequestMapping("/book") // url:/模块/资源/{id}/细分 /seckill/list
-public class BookController {
+public class BookController{
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-
+	public ResultBean result = new ResultBean();
 	@Autowired
 	private BookService bookService;
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	private Object list(Model model) {
-		ResultBean result = new ResultBean();
 		List<Book> list;
 		try {
 			list = bookService.getList();

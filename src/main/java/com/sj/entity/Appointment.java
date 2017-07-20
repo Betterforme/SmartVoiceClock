@@ -1,4 +1,4 @@
-package com.soecode.lyf.entity;
+package com.sj.entity;
 
 import java.util.Date;
 
