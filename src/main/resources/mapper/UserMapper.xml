@@ -172,5 +172,15 @@
 			userid
 	</select>
 	
+
+<select id="getLastInsertId"  resultType="User">
+		SELECT  
+		<include refid="Base_Column_List" />
+		from
+			user
+		ORDER BY
+			userid	DESC 
+		Limit 1
+</select>
 	
 </mapper>

@@ -37,4 +37,9 @@ public interface UserService {
 	 * 注册用户
 	 */
 	User userRegist(User user);
+	
+	/*
+	 * 获取自增长的userid
+	 * */
+	int getLastInsertId();
 }

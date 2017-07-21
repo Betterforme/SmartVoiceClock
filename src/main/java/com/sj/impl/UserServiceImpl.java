@@ -39,20 +39,24 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> getList() {
-		// TODO Auto-generated method stub
 		return userMapper.queryAll();
 	}
 
 	@Override
 	public int userLogin(User user) {
-		// TODO Auto-generated method stub
 		return userMapper.insert(user);
 	}
 
 	@Override
 	public User userRegist(User user) {
+		userMapper.insert(user);
+		return userMapper.getLastInsertId();
+	}
+
+	@Override
+	public int getLastInsertId() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 

@@ -24,13 +24,21 @@ import com.sj.exception.NoNumberException;
 import com.sj.exception.RepeatAppointException;
 import com.sj.service.BookService;
 import com.sj.service.UserService;
+import com.sj.util.Sutil;
+
+import constants.Constants;
 
 @Controller
 @RequestMapping("/user") // url:/模块/资源/{id}/细分 /seckill/list
-public class UserController{
+public class UserController {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	public ResultBean result = new ResultBean();
+	
+	public void setServiceError(){
+		result.setResultObject(Constants.TIP_SVRVICE_ERROR);
+		result.setResultCode("1");
+	}
 	@Autowired
 	private UserService userService;
 
@@ -38,32 +46,46 @@ public class UserController{
 	@ResponseBody
 	private Object login(User model) {
 		try {
-			int id = userService.userLogin(model);
-			model.setUserid((long) id);
-			result.setResultObject(model);
-			result.setResultCode("0");
+			User user = userService.getUserById(model.getUserid());
+			if(user == null){
+				result.setResultObject(Constants.TIP_LOGGIN_UNREGIST);
+				result.setResultCode("102");
+			}else if(user.getPassword().equals(model.getPassword())){
+				result.setResultObject(user);
+				result.setResultCode("0");
+			}else{
+				result.setResultObject(Constants.TIP_LOGGIN_PASSWORD_ERROR);
+				result.setResultCode("101");
+			}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			result.setResultObject(null);
-			result.setResultCode("1");
+			setServiceError();
 		}
 		// list.jsp + model = ModelAndView
 		return result;// WEB-INF/jsp/"list".jsp
 	}
 
-//	@RequestMapping(value = "/{bookId}/detail", method = RequestMethod.GET)
-//	private String detail(@PathVariable("bookId") Long bookId, Model model) {
-//		if (bookId == null) {
-//			return "redirect:/book/list";
-//		}
-//		Book book = bookService.getById(bookId);
-//		if (book == null) {
-//			return "forward:/book/list";
-//		}
-//		model.addAttribute("book", book);
-//		return "detail";
-//	}
+	@RequestMapping(value = "/regist", method = RequestMethod.GET)
+	@ResponseBody
+	private Object regist(User model) {
+		try {
+			if(!Sutil.isEorN(model.getPassword()) && !Sutil.isEorN(model.getUsername())){
+				User userid = userService.userRegist(model);
+				result.setResultObject(userid);
+				result.setResultCode("0");
+			}else{
+				result.setResultObject(model);
+				result.setResultCode("0");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			setServiceError();
+		}
+		return result;
+	}
 //
 //	// ajax json
 //	@RequestMapping(value = "/{bookId}/appoint", method = RequestMethod.POST, produces = {
